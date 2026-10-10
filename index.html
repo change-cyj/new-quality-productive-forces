@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>人工智能 · 新质生产力的引擎 | AI as New Quality Productive Force</title>
+  <meta name="description" content="通过多维度可视化展示人工智能作为新质生产力的作用与意义" />
+
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet" />
+
+  <!-- 图标 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css" />
+
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  <!-- ECharts 词云扩展 -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@2.1.0/dist/echarts-wordcloud.min.js"></script>
+
+  <!-- 本地样式 -->
+  <link rel="stylesheet" href="css/style.css?v=9" />
+  <link rel="stylesheet" href="css/animations.css?v=9" />
+</head>
+<body>
+
+  <!-- ============ 顶部导航 ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="logo">
+        <span class="logo-icon"><i class="fas fa-brain"></i></span>
+        <span class="logo-text">AI · 新质生产力</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" data-nav="hero"><i class="fas fa-home"></i> 首页</a></li>
+        <li><a href="#era" data-nav="era"><i class="fas fa-stream"></i> 时代之变</a></li>
+        <li><a href="#economy" data-nav="economy"><i class="fas fa-chart-line"></i> 经济引擎</a></li>
+        <li><a href="#industry" data-nav="industry"><i class="fas fa-industry"></i> 产业赋能</a></li>
+        <li><a href="#innovation" data-nav="innovation"><i class="fas fa-lightbulb"></i> 创新加速</a></li>
+        <li><a href="#flow" data-nav="flow"><i class="fas fa-stream"></i> 价值流转</a></li>
+        <li><a href="#ecosystem" data-nav="ecosystem"><i class="fas fa-project-diagram"></i> 生态网络</a></li>
+        <li><a href="#employment" data-nav="employment"><i class="fas fa-users"></i> 就业重塑</a></li>
+        <li><a href="#global" data-nav="global"><i class="fas fa-globe-asia"></i> 全球格局</a></li>
+        <li><a href="#future" data-nav="future"><i class="fas fa-rocket"></i> 未来展望</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div class="nav-progress" id="navProgress"></div>
+  </nav>
+
+  <!-- 侧边章节导航点 -->
+  <ul class="side-dots" id="sideDots">
+    <li data-target="hero"        title="首页"></li>
+    <li data-target="era"         title="时代之变"></li>
+    <li data-target="economy"     title="经济引擎"></li>
+    <li data-target="industry"    title="产业赋能"></li>
+    <li data-target="innovation"  title="创新加速"></li>
+    <li data-target="flow"         title="价值流转"></li>
+    <li data-target="ecosystem"    title="生态网络"></li>
+    <li data-target="employment"  title="就业重塑"></li>
+    <li data-target="global"       title="全球格局"></li>
+    <li data-target="future"       title="未来展望"></li>
+  </ul>
+
+  <!-- ============ 1. Hero 首页 ============ -->
+  <section id="hero" class="section hero">
+    <canvas id="particleCanvas" class="particle-bg"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <i class="fas fa-sparkles"></i> 新质生产力 · 时代命题
+      </div>
+      <h1 class="hero-title reveal">
+        <span class="gradient-text">人工智能</span>
+        <span class="hero-sub">新质生产力的核心引擎</span>
+      </h1>
+      <p class="hero-desc reveal">
+        从图灵到 GPT，从工厂到农场，从医院到宇宙——
+        AI 正以前所未有的速度重塑生产、生活与思考方式，
+        成为继蒸汽、电力、信息技术之后的第四次生产力革命。
+      </p>
+
+      <!-- 动态计数器 -->
+      <div class="hero-stats reveal" id="heroStats"></div>
+
+      <div class="hero-cta reveal">
+        <a href="#era" class="btn btn-primary">
+          开启探索 <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#future" class="btn btn-ghost">
+          <i class="fas fa-rocket"></i> 直达未来
+        </a>
+      </div>
+
+      <div class="scroll-hint">
+        <span>向下滚动</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. 时代之变 ============ -->
+  <section id="era" class="section">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">01 / 时代之变</div>
+      <h2 class="section-title">从思想实验到<span class="accent">社会基础设施</span></h2>
+      <p class="section-subtitle">
+        近七十年间，人工智能经历三次浪潮，从实验室走向千行百业。
+        每一次突破都让"机器智能"更接近"生产力"本身。
+      </p>
+    </div>
+
+    <!-- 时间线 -->
+    <div class="timeline-wrap reveal">
+      <div class="timeline-track" id="timelineTrack"></div>
+      <div class="timeline-line"></div>
+      <button class="timeline-nav prev" id="tlPrev" aria-label="上一项"><i class="fas fa-chevron-left"></i></button>
+      <button class="timeline-nav next" id="tlNext" aria-label="下一项"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- 算力增长图 -->
+    <div class="chart-block reveal">
+      <div class="chart-title">
+        <h3>训练算力指数 vs 推理成本（2020=100）</h3>
+        <p>算力每6个月翻番，推理成本下降4个数量级——AI能力的爆炸式释放。</p>
+      </div>
+      <div id="computeChart" class="chart" style="height:420px"></div>
+    </div>
+  </section>
+
+  <!-- ============ 3. 经济新引擎 ============ -->
+  <section id="economy" class="section alt-bg">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">02 / 经济新引擎</div>
+      <h2 class="section-title">万亿美元级的<span class="accent">增长动能</span></h2>
+      <p class="section-subtitle">
+        AI 不再是单点工具，而是渗透到价值链每一环的"乘数因子"。
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>全球 & 中国 AI 市场规模</h3>
+          <p>单位：亿美元 · 虚线后为预测</p>
+        </div>
+        <div id="marketChart" class="chart" style="height:420px"></div>
+      </div>
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>2024 各国 AI 市场规模</h3>
+          <p>Top 8 国家对比（亿美元）</p>
+        </div>
+        <div id="countryChart" class="chart" style="height:420px"></div>
+      </div>
+    </div>
+
+    <div class="chart-block reveal full-width">
+      <div class="chart-title">
+        <h3>2030 AI 对各区域 GDP 贡献预测</h3>
+        <p>总额约 15.7 万亿美元，中国占比最高（PwC）</p>
+      </div>
+      <div id="gdpChart" class="chart" style="height:380px"></div>
+    </div>
+
+    <!-- 数据洞察卡片 -->
+    <div class="insight-row reveal">
+      <div class="insight-card">
+        <div class="insight-num">15.7T</div>
+        <div class="insight-label">2030 AI 对全球 GDP 贡献</div>
+        <div class="insight-desc">相当于一个日本 GDP 的两倍，超过中印两国 GDP 增量之和</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">26.1%</div>
+        <div class="insight-label">中国 GDP 受 AI 拉动占比</div>
+        <div class="insight-desc">全球最高，制造业升级与政策驱动是核心动力</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">66%</div>
+        <div class="insight-label">生成式 AI 年生产力提升</div>
+        <div class="insight-desc">麦肯锡：约 60-70% 工作活动可被 AI 自动化</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. 产业赋能 ============ -->
+  <section id="industry" class="section">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">03 / 产业赋能</div>
+      <h2 class="section-title">千行百业的<span class="accent">智能跃迁</span></h2>
+      <p class="section-subtitle">
+        金融、医疗、制造、农业……AI 在每个行业都找到了颠覆与重构的入口。
+      </p>
+    </div>
+
+    <!-- 产业洞察卡片 -->
+    <div class="insight-row reveal">
+      <div class="insight-card">
+        <div class="insight-num">92%</div>
+        <div class="insight-label">媒体娱乐内容生成渗透率</div>
+        <div class="insight-desc">AI 生成内容已占新网络内容 30%+，颠覆传统创作链</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">88%</div>
+        <div class="insight-label">制造业质量检测渗透率</div>
+        <div class="insight-desc">AI 视觉检测准确率达 99.9%，远超人工 95% 上限</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">55%</div>
+        <div class="insight-label">行业平均 AI 渗透率</div>
+        <div class="insight-desc">从单点试点到规模化部署，仍有巨大提升空间</div>
+      </div>
+    </div>
+
+    <div class="chart-block reveal full-width">
+      <div class="chart-title">
+        <h3>AI 能力 × 行业渗透率热力图</h3>
+        <p>颜色越深表示渗透率越高，揭示 AI 能力与行业的匹配度</p>
+      </div>
+      <div id="heatmapChart" class="chart" style="height:520px"></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>各行业 AI 投资气泡图</h3>
+          <p>X: 渗透率  Y: 生产力提升  气泡大小: 投资额</p>
+        </div>
+        <div id="bubbleChart" class="chart" style="height:460px"></div>
+      </div>
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>中美行业生产力提升对比</h3>
+          <p>雷达图揭示两国 AI 在各行业的赋能强度</p>
+        </div>
+        <div id="radarChart" class="chart" style="height:460px"></div>
+      </div>
+    </div>
+
+    <!-- 箱线图：各行业生产力提升分布 -->
+    <div class="chart-block reveal full-width">
+      <div class="chart-title">
+        <h3>各行业生产力提升分布（箱线图）</h3>
+        <p>展示最低值、Q1、中位数、Q3、最高值分布；虚线为行业均值</p>
+      </div>
+      <div id="boxplotChart" class="chart" style="height:420px"></div>
+    </div>
+  </section>
+
+  <!-- ============ 5. 创新加速 ============ -->
+  <section id="innovation" class="section alt-bg">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">04 / 创新加速</div>
+      <h2 class="section-title">研发投入的<span class="accent">指数曲线</span></h2>
+      <p class="section-subtitle">
+        资本、专利、论文——创新三要素在 AI 时代齐头并进。
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>全球 AI R&D 投入趋势</h3>
+          <p>私营 vs 公共投入（亿美元）</p>
+        </div>
+        <div id="rdChart" class="chart" style="height:420px"></div>
+      </div>
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>2023 AI 专利申请 TOP 国家</h3>
+          <p>中国占据全球 55%+ AI 专利申请（件）</p>
+        </div>
+        <div id="patentChart" class="chart" style="height:420px"></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>AI 论文产出 TOP 机构</h3>
+          <p>2024 高影响力论文数</p>
+        </div>
+        <div id="paperChart" class="chart" style="height:420px"></div>
+      </div>
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>数据 · 算法 · 算力 对 AI 能力贡献演变</h3>
+          <p>2024 年算力贡献占比首次突破 48%</p>
+        </div>
+        <div id="contribChart" class="chart" style="height:420px"></div>
+      </div>
+    </div>
+
+    <!-- 漏斗图：AI模型开发到商用转化 -->
+    <div class="chart-block reveal full-width">
+      <div class="chart-title">
+        <h3>AI 模型从研发到商用转化漏斗</h3>
+        <p>从基础研究到规模化推广，转化率逐级递减</p>
+      </div>
+      <div id="funnelChart" class="chart" style="height:380px"></div>
+    </div>
+
+    <!-- 创新洞察卡片 -->
+    <div class="insight-row reveal">
+      <div class="insight-card">
+        <div class="insight-num">3.5%</div>
+        <div class="insight-label">AI 研发到商用转化率</div>
+        <div class="insight-desc">从基础研究到规模化推广，每环节衰减约 50-60%</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">48%</div>
+        <div class="insight-label">2024 算力对 AI 贡献占比</div>
+        <div class="insight-desc">超越数据与算法，算力成为 AI 能力的第一驱动力</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">38937</div>
+        <div class="insight-label">2023 中国 AI 专利申请量</div>
+        <div class="insight-desc">占全球 55%+，专利布局遥遥领先</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. 价值流转 ============ -->
+  <section id="flow" class="section alt-bg">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">05 / 价值流转</div>
+      <h2 class="section-title">从技术到价值的<span class="accent">流转图谱</span></h2>
+      <p class="section-subtitle">
+        桑基图揭示 AI 技术 → 应用 → 价值的能量流动；矩形树图呈现全球 AI 公司市值版图；
+        象形柱图直观对比中美欧算力规模——三种专业可视化共绘"AI 价值链"。
+      </p>
+    </div>
+
+    <!-- 桑基图：技术→应用→价值 -->
+    <div class="chart-block reveal full-width">
+      <div class="chart-title">
+        <h3>AI 价值流转桑基图（技术 → 应用 → 价值）</h3>
+        <p>流量宽度表示价值强度，颜色区分技术 / 应用 / 价值三层</p>
+      </div>
+      <div id="sankeyChart" class="chart" style="height:520px"></div>
+    </div>
+
+    <div class="grid-2">
+      <!-- 矩形树图：全球AI公司市值 -->
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>全球 AI 公司市值 TOP（矩形树图）</h3>
+          <p>面积代表市值（亿美元），支持点击钻取</p>
+        </div>
+        <div id="treemapChart" class="chart" style="height:460px"></div>
+      </div>
+      <!-- 象形柱图：算力对比 -->
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>中美欧算力对比（象形柱图）</h3>
+          <p>单位：EFLOPS（百亿亿次浮点运算 / 秒）</p>
+        </div>
+        <div id="pictorialChart" class="chart" style="height:460px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. 生态网络 ============ -->
+  <section id="ecosystem" class="section">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">06 / 生态网络</div>
+      <h2 class="section-title">技术 · 基础 · 应用 · 社会的<span class="accent">力导向图谱</span></h2>
+      <p class="section-subtitle">
+        力导向关系图揭示 AI 生态系统的节点关联；词云图描绘 AI 热词全景；
+        主题河流图刻画 2015-2025 各子领域研究热度的流变——AI 不只是单点突破，而是网络协同。
+      </p>
+    </div>
+
+    <!-- 关系图：AI生态网络 -->
+    <div class="chart-block reveal full-width">
+      <div class="chart-title">
+        <h3>AI 生态网络（力引导关系图）</h3>
+        <p>节点大小 = 影响力，连线 = 关联强度，可拖拽 / 缩放探索</p>
+      </div>
+      <div id="graphChart" class="chart" style="height:540px"></div>
+    </div>
+
+    <div class="grid-2">
+      <!-- 词云图 -->
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>AI 关键词云（热度全景）</h3>
+          <p>字号反映热度，颜色区分主题</p>
+        </div>
+        <div id="wordCloudChart" class="chart" style="height:440px"></div>
+      </div>
+      <!-- 主题河流图 -->
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>AI 子领域研究热度流变（2015-2025）</h3>
+          <p>河流宽度 = 相对热度指数，揭示技术焦点迁移</p>
+        </div>
+        <div id="themeRiverChart" class="chart" style="height:440px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. 就业重塑 ============ -->
+  <section id="employment" class="section">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">07 / 就业重塑</div>
+      <h2 class="section-title">不是消灭岗位，而是<span class="accent">重塑岗位</span></h2>
+      <p class="section-subtitle">
+        AI 每淘汰 1 个旧岗位，便创造 2-3 个新岗位——人力结构升级而非萎缩。
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>AI 带来的岗位消失 vs 新增</h3>
+          <p>虚线后为预测（万人）</p>
+        </div>
+        <div id="jobChart" class="chart" style="height:420px"></div>
+      </div>
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>2024 新兴 AI 岗位需求增长</h3>
+          <p>同比增长率（%）</p>
+        </div>
+        <div id="jobDemandChart" class="chart" style="height:420px"></div>
+      </div>
+    </div>
+
+    <!-- 金句区 -->
+    <!-- 就业洞察卡片 -->
+    <div class="insight-row reveal">
+      <div class="insight-card">
+        <div class="insight-num">2.4x</div>
+        <div class="insight-label">新增/消失岗位比</div>
+        <div class="insight-desc">AI 每淘汰 1 个旧岗位，平均创造 2-3 个新岗位</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">1360%</div>
+        <div class="insight-label">提示词工程师需求增长</div>
+        <div class="insight-desc">2024 同比增长，新兴 AI 岗位全面爆发</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">9700万</div>
+        <div class="insight-label">2030 新增 AI 相关岗位</div>
+        <div class="insight-desc">世界经济论坛：AI 将净创造就业，而非净消灭</div>
+      </div>
+    </div>
+
+    <div class="quotes reveal">
+      <div class="quote-card" id="quoteCard"></div>
+      <div class="quote-dots" id="quoteDots"></div>
+    </div>
+  </section>
+
+  <!-- ============ 7. 全球格局 ============ -->
+  <section id="global" class="section alt-bg">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">08 / 全球格局</div>
+      <h2 class="section-title">中美双核 · 多极<span class="accent">协同演进</span></h2>
+      <p class="section-subtitle">
+        全球 AI 竞合进入新阶段，研究、人才、算力、政策多维角力。
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>全球 AI 综合国力对比</h3>
+          <p>7 大维度（研究/人才/硬件/数据/应用/政策/投资）</p>
+        </div>
+        <div id="globalRadar" class="chart" style="height:460px"></div>
+      </div>
+      <div class="chart-block reveal">
+        <div class="chart-title">
+          <h3>AI 独角兽分布（家）</h3>
+          <p>全球 AI 独角兽数量按地区</p>
+        </div>
+        <div id="unicornChart" class="chart" style="height:460px"></div>
+      </div>
+    </div>
+
+    <div class="chart-block reveal full-width">
+      <div class="chart-title">
+        <h3>关键技术突破热度（2023 → 2025）</h3>
+        <p>7 大前沿方向的技术成熟度跃迁</p>
+      </div>
+      <div id="techRadar" class="chart" style="height:460px"></div>
+    </div>
+
+    <!-- 平行坐标图：多国多维度对比 -->
+    <div class="chart-block reveal full-width">
+      <div class="chart-title">
+        <h3>主要国家 AI 多维度平行坐标图</h3>
+        <p>7 大维度平行对比，每条线代表一个国家，颜色映射算力规模</p>
+      </div>
+      <div id="parallelChart" class="chart" style="height:420px"></div>
+    </div>
+
+    <!-- 小倍图：主要国家 AI 多指标趋势 -->
+    <div class="chart-block reveal full-width">
+      <div class="chart-title">
+        <h3>主要国家 AI 多指标趋势（小倍图）</h3>
+        <p>6 国 × 5 指标 × 6 年度的多线对比，支持区域缩放</p>
+      </div>
+      <div id="smallMultiplesChart" class="chart" style="height:440px"></div>
+    </div>
+  </section>
+
+  <!-- ============ 8. 未来展望 ============ -->
+  <section id="future" class="section">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">09 / 未来展望</div>
+      <h2 class="section-title">通向<span class="accent">AGI 之路</span></h2>
+      <p class="section-subtitle">
+        在 2026-2040 的时间窗里，AI 将从"工具"演化为"伙伴"，最终成为社会的智力底座。
+      </p>
+    </div>
+
+    <div class="future-timeline reveal" id="futureTimeline"></div>
+
+    <div class="conclusion reveal">
+      <div class="conclusion-grid">
+        <div class="conclusion-card">
+          <i class="fas fa-microchip"></i>
+          <h4>技术底座</h4>
+          <p>大模型 + 算力 + 数据 三位一体，持续突破</p>
+        </div>
+        <div class="conclusion-card">
+          <i class="fas fa-chart-pie"></i>
+          <h4>经济引擎</h4>
+          <p>2030 年贡献超 15 万亿美元 GDP</p>
+        </div>
+        <div class="conclusion-card">
+          <i class="fas fa-industry-alt"></i>
+          <h4>产业重构</h4>
+          <p>千行百业智能化转型，效率数量级提升</p>
+        </div>
+        <div class="conclusion-card">
+          <i class="fas fa-user-robot"></i>
+          <h4>社会重塑</h4>
+          <p>就业结构升级，新岗位持续涌现</p>
+        </div>
+        <div class="conclusion-card highlight">
+          <i class="fas fa-infinity"></i>
+          <h4>新质生产力</h4>
+          <p>AI 不是工具，是新型生产关系本身</p>
+        </div>
+        <div class="conclusion-card">
+          <i class="fas fa-globe"></i>
+          <h4>全球协同</h4>
+          <p>中美双核 + 多极，竞争与合作并存</p>
+        </div>
+      </div>
+
+      <div class="conclusion-quote">
+        <i class="fas fa-quote-left"></i>
+        <p id="conclusionQuote"></p>
+        <span class="quote-author" id="conclusionAuthor"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 页脚 ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4><i class="fas fa-brain"></i> 人工智能 · 新质生产力</h4>
+        <p>通过多维可视化呈现 AI 作为新质生产力的作用与意义</p>
+      </div>
+      <div class="footer-col">
+        <h4>数据来源</h4>
+        <ul>
+          <li>Stanford AI Index 2024/2025</li>
+          <li>CAICT 中国信通院</li>
+          <li>IDC / Grand View Research</li>
+          <li>麦肯锡 / PwC / WIPO</li>
+          <li>Statista / World Bank</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>技术栈</h4>
+        <ul>
+          <li>HTML5 + Canvas + CSS3</li>
+          <li>ECharts 5.5 可视化引擎</li>
+          <li>原生 JavaScript</li>
+          <li>响应式设计 + 滚动动效</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>说明</h4>
+        <p>本网站为可视化作业作品，部分 2025-2030 数据为权威机构预测值。仅供学习交流。</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 · 可视化作业 2 · AI as New Quality Productive Force</span>
+    </div>
+  </footer>
+
+  <!-- 回到顶部 -->
+  <button class="back-to-top" id="backToTop" aria-label="回到顶部">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- 脚本 -->
+  <script src="js/data.js?v=9"></script>
+  <script src="js/particles.js?v=9"></script>
+  <script src="js/charts.js?v=9"></script>
+  <script src="js/animations.js?v=9"></script>
+  <script src="js/main.js?v=9"></script>
+</body>
+</html>
